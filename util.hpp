@@ -15,10 +15,6 @@
 
 #include "succinct/broadword.hpp"
 
-#include <cilk/cilk.h>
-#include <cilk/reducer_list.h>
-#include <cilk/cilk_api.h>
-
 #define DS2I_LIKELY(x) __builtin_expect(!!(x), 1)
 #define DS2I_UNLIKELY(x) __builtin_expect(!!(x), 0)
 #define DS2I_NOINLINE __attribute__((noinline))
@@ -49,23 +45,6 @@ void output_trec(const std::vector<std::pair<double, uint64_t>>& top_k,
 
 namespace ds2i {
 
-
-    // Cilk
-    void init_threads(int32_t threads) {
-
-      // Set the number of threads
-      if (threads > 0) {
-        __cilkrts_set_param("nworkers", std::to_string(threads).c_str());
-        std::cerr << "Using up to " << threads << " threads." << std::endl;
-      }
-
-      // Just do something to get the workers spawned
-      cilk_for (size_t i = 0; i < 10000; ++i) {
-        size_t x = 5; 
-        x = x * 10;
-      }
-
-    }
 
     inline uint64_t ceil_log2(const uint64_t x) {
         assert(x > 0);

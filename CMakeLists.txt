@@ -32,8 +32,6 @@ if (UNIX)
 
    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ggdb") # Add debug info anyway
 
-   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fcilkplus") # Add Cilk
-
 endif()
 
 # set(Boost_USE_STATIC_LIBS ON)
@@ -140,6 +138,7 @@ add_executable(external_corpus_expansion external_corpus_expansion.cpp docvector
 target_link_libraries(external_corpus_expansion
   ${Boost_LIBRARIES}
   FastPFor_lib
+  pthread
   )
 
 add_executable(train_corpus_sampler train_corpus_sampler.cpp docvector/compress_qmx.cpp)
@@ -153,6 +152,7 @@ add_executable(external_corpus_sampler external_corpus_sampler.cpp docvector/com
 target_link_libraries(external_corpus_sampler
   ${Boost_LIBRARIES}
   FastPFor_lib
+  pthread
   )
 
 
