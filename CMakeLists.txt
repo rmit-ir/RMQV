@@ -145,6 +145,7 @@ add_executable(train_corpus_sampler train_corpus_sampler.cpp docvector/compress_
 target_link_libraries(train_corpus_sampler
   ${Boost_LIBRARIES}
   FastPFor_lib
+  pthread
   )
 
 
