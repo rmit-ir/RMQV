@@ -94,7 +94,7 @@ The following dependencies are needed for the build.
 * CMake >= 2.8, for the build system
 * Boost >= 1.51
 
-To install Boost, run ./boost.sh first.
+If you do not have Boost installed, run `./boost.sh` first.
 
 The code depends on several git submodules. If you have cloned the repository
 without `--recursive`, you will need to perform the following commands before
@@ -111,6 +111,8 @@ To build the code:
 
 It is also preferable to perform a `make test`, which runs the unit tests.
 
+If you are having problems with your boost version in CMake, download and compile the 
+latest version using the `./boost.sh` script supplied.
 
 For further information about ds2i and variable block-max wand, please visit the original repos:
 * [ds2i](https://github.com/ot/ds2i)
