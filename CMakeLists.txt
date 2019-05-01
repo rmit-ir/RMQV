@@ -38,8 +38,8 @@ endif()
 find_package(Boost 1.53.0 COMPONENTS iostreams unit_test_framework filesystem system thread REQUIRED)
 #set(Boost_INCLUDE_DIRS $ENV{HOME}/include) # Add debug info anyway
 #set(Boost_LIBRARIES $ENV{HOME}/lib)
-include_directories(${Boost_INCLUDE_DIRS})
-link_directories(${Boost_LIBRARY_DIRS})
+include_directories(${Boost_INCLUDE_DIR})
+link_directories(${Boost_LIBRARY_DIR})
 
 # stxxl
 add_definitions(-DSTXXL_VERBOSE_LEVEL=-10) # suppress messages to stdout
